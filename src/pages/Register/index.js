@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {FiArrowLeft} from 'react-icons/fi'
 
-import './style.css'
+import './styles.css'
 import logoImg from '../../assets/logo.svg'
 
 export default function Register() {
