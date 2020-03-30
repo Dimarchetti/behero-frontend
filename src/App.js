@@ -1,16 +1,14 @@
 import React from 'react'
 
 import './global.css'
-import Logon from './pages/Logon'
+import Routes from './routes'
 
 // JSX (HTML dentro do Javascript)
 
-function App() {
+export default function App() {
   return (
     <div>
-      <Logon />
+      <Routes />
     </div>
   )
-}  
-
-export default App
+}
