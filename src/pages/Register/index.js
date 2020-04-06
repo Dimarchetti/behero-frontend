@@ -3,19 +3,21 @@ import { Link, useHistory } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 
 import './styles.css'
+// Importando Api
 import api from '../../services/api'
-
 
 import logoImg from '../../assets/logo.svg'
 
 
+// Função Register inclui cada um dos inputs do formulário dentro de um estado
 export default function Register() {
 	const[name, setName] = useState('')
 	const[email, setEmail] = useState('')
 	const[whatsapp, setWhatsapp] = useState('')
 	const[city, setCity] = useState('')
 	const[uf, setUf] = useState('')
-
+	
+	// Envia o usuário de volta para a página de login
 	const history = useHistory()
 
 	// Função que vai pegar os dados do formulário do frontend
@@ -32,10 +34,11 @@ export default function Register() {
 		}
 		
 		try {
-			// Chamada para a API
+			// Chamada para a API. Joga os dados da variável 'data' q está com os inputs dentro da rota ongs que está no node (rota ongs no insomnia). o axios já envia o 'data' em formato .json então não precisa transformar.
 			const response = await api.post('ongs', data)
 
 			alert(`Seu ID de acesso: ${response.data.id}`)
+			//envia o usuário de volta para essa rota após o cadatro de uma nova ong.
 			history.push('/')
 		} catch (err){
 			alert(`Erro no cadastro, tente novamente.`)
@@ -61,7 +64,9 @@ export default function Register() {
 					<input 
 						placeholder="Nome da ONG"
 						value={name}
-						onChange={e => setName(e.target.value)}
+
+						// Função (arrow function) que recebe o campo de input. A função joga o input 'e.target.value' dentro do parâmetro 'e' 
+						onChange={e => setName(e.target.value)} 
 					/>
 					
 					<input 
